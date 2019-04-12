@@ -1,0 +1,211 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>👋🛸ProductPlace</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="icon" href="favicon.ico"> 
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">ProductPlace</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <!--
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            -->
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+            <!-- Disabled search for now -->
+                <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>-->
+                <button class="btn btn-outline-primary my-2 my-sm-0" id="navSignInBtn">Sign In</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" id="navSignOutBtn" type="submit">Sign Out</button>
+            <!-- <li class="nav-item dropdown">
+                <button class="btn btn-outline-dark my-2 my-sm-0" id="navProfileBtn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Profile
+                </button>
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <button class="dropdown-item" id="signOutBtn">Sign out</button>
+                </div>
+            </li> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- User Login and Signup -->
+
+    <div class="modal" id="userModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm sign-in-modal">
+          <div class="modal-content">
+            <div id="loginDialog" class="form-signin">
+                <h3 class="h3 mb-3 font-weight-normal user-modal-header">Sign in to ProductPlace</h3>
+                <p>Make money sharing products from fellow makers or submit your own.</p>
+                <p class="text-warning" id="loginError"></p>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" id="loginEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
+                <div class="checkbox mb-3">
+                  <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id="signInBtn">Sign in</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="showSignUpBtn">Sign up</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+            </div>
+            <div id="signupDialog" class="form-signin">
+                    <h3 class="h3 mb-3 font-weight-normal user-modal-header">Sign up to ProductPlace</h3>
+                    <p>Make money sharing products from fellow makers or submit your own.</p>
+                    <p class="text-warning" id="signupError"></p>
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input type="email" id="signupEmail" class="form-control" placeholder="Email address" required autofocus>
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="signupPassword" class="form-control" placeholder="Password" required>
+                    <div class="checkbox mb-3">
+                      <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                      </label>
+                    </div>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="signUpBtn">Sign up</button>
+                    <p>Already a member? <a style="text-decoration: underline" id="showSignInBtn">Sign in</a></p>
+                    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+                </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">Advertise products that your users will care about</h1>
+                <p class="lead text-muted">Make money sharing products made by other bootstrappers and indie hackers.</p>
+                <p>
+                    <a href="#products" id="" class="btn btn-primary my-2">👀 See products</a>
+                    <a href="" class="btn btn-danger my-2" data-toggle="modal" data-target="#listProductModal">💪 List your own</a>
+                </p>
+            </div>
+        </section>
+
+        <a name="products"></a>
+    
+        <div class="album py-5 bg-light">
+            <div class="container">
+    
+                <div class="row prodlist">
+                </div>
+
+            </div>
+        </div>
+    
+        </main>
+
+        <footer class="text-muted">
+            <div class="container">
+                <p class="float-right">
+                    <a href="mailto:sarwech.shar@gmail.com?Subject=Feature%20or%20bug" target="_top">Want to give feedback or report a bug?</a>
+                </p>
+                <p class="float-left">ProductPlace - Make money sharing products made by other bootstrappers and indie hackers.</p>
+            </div>
+        </footer>
+
+        <!-- Modals for displaying the actual products -->
+        
+        <section class="modals">
+
+        </section>
+
+        <!-- Modal explainer for listing products -->
+
+
+        <div class="modal" id="listProductModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm sign-in-modal">
+                <div class="modal-content">
+                    <div class="form-signin">
+                        <h3 class="h3 mb-3 font-weight-normal user-modal-header">How Listing Works</h3>
+                        <p>Complete the form below and set an ad budget to have your product listed here for other users to be able to advertise.</p>
+                        <p>Your product will be reviewed within 24 hours. Once approved, users can see it and embed the ad on their site. When they generate clicks, you get traffic.</p>
+                        <p>Fees range from $25-75 depending on how many clicks you are targeting. Once the maximum number of clicks has been received, the ads will stop.</p>
+                        <a class="typeform-share button" href="https://finmod.typeform.com/to/RxqWRr" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#267DDD;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" target="_blank">Submit yours </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyB9ClRIluVyvSXohALUdVyhmJjm4TmdXnU",
+            authDomain: "applist-91837.firebaseapp.com",
+            databaseURL: "https://applist-91837.firebaseio.com",
+            projectId: "applist-91837",
+            storageBucket: "applist-91837.appspot.com",
+            messagingSenderId: "360686201417"
+          };
+          firebase.initializeApp(config);
+        </script>
+
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script> 
+            (function() { 
+                var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; 
+                if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } 
+            })() 
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93390023-5"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-93390023-5');
+        </script>
+
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
+</html>
